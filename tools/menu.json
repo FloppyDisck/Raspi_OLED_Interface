@@ -1,0 +1,60 @@
+[   {
+        "libraries":[
+            "ExitNode.hpp",
+            "MenuNode.hpp"
+        ]
+
+    },
+    {
+        "name":"Head",
+        "type":"MenuNode",
+        "children":[
+            {
+                "name":"Item 1",
+                "type":"MenuNode",
+                "children":[
+                    {
+                        "name":"Other item 1",
+                        "type":"MenuNode",
+                        "children":[]
+                    },
+                    {
+                        "name":"Other item 1",
+                        "type":"MenuNode",
+                        "children":[]
+                    },
+                    {
+                        "name":"Other item 1",
+                        "type":"MenuNode",
+                        "children":[]
+                    }
+                ]
+            },
+            {
+                "name":"Item 2",
+                "type":"MenuNode",
+                "children":[]
+            },
+            {
+                "name":"Item 3",
+                "type":"MenuNode",
+                "children":[]
+            },
+            {
+                "name":"Item 4",
+                "type":"MenuNode",
+                "children":[]
+            },
+            {
+                "name":"Item 5",
+                "type":"MenuNode",
+                "children":[]
+            },
+            {
+                "name":"Item 6",
+                "type":"MenuNode",
+                "children":[]
+            }
+        ]
+    }
+]
