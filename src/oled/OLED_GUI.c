@@ -364,7 +364,7 @@ void GUI_LaunchScreen() {
 }
 
 void GUI_ExitScreen() {
-    GUI_Disbitmap(OLED_X_MAXPIXEL, OLED_Y_MAXPIXEL, RaspberryPiLogo, 32, 33);
+    GUI_Disbitmap(1, 1, RaspberryPiLogo, 32, 33);
     OLED_Display();
     DEV_Delay_ms(500);
     OLED_Clear(0x00);
