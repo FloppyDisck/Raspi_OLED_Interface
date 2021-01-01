@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.5)
 project(RPi_Menu)
 
 set(MULTITHREAD "pthread")
-set(WIREPI "lwiringPi")
+set(WIREPI "wiringPi")
 
 link_libraries(stdc++fs)
 
