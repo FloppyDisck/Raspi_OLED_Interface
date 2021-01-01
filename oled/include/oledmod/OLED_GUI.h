@@ -2,7 +2,7 @@
 #define __OLED_GUI_H		
 
 #include "oledmod/OLED_Driver.h"
-#include "/../../fonts/fonts.h"
+#include "fonts/fonts.h"
 
 /********************************************************************************
 function:	
