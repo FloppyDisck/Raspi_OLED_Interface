@@ -7,7 +7,7 @@ set(WIREPI "lwiringPi")
 
 link_libraries(stdc++fs)
 
-add_definitions(-std=c++17 -g -03)
+add_definitions(-std=c++17 -g -O3)
 
 add_subdirectory(menu)
 add_subdirectory(menu_node)
