@@ -1,7 +1,7 @@
 #ifndef __OLED_DRIVER_H
 #define __OLED_DRIVER_H		
 #pragma once
-#include "DEV_Config.h"
+#include "oledmod/DEV_Config.h"
 
 #define	COLOR				uint16_t		//The variable type of the color (unsigned short) 
 #define	POINT				uint16_t		//The type of coordinate (unsigned short) 

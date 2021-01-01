@@ -1,6 +1,6 @@
 #ifndef MENUNODE_HPP
 #define MENUNODE_HPP
-#include "Node.hpp"
+#include "nodemod/Node.hpp"
 
 //TODO: make text formating font dependent
 

@@ -1,4 +1,4 @@
-#include "MenuNode.hpp"
+#include "nodemod/MenuNode.hpp"
 
 MenuNode::MenuNode(const char* name, Node* previous):Node(name, previous) {}
 

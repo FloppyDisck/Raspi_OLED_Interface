@@ -1,6 +1,6 @@
 #ifndef EXITNODE_HPP
 #define EXITNODE_HPP
-#include "Node.hpp"
+#include "nodemod/Node.hpp"
 
 class ExitNode : public Node {
     public:

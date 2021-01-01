@@ -1,6 +1,6 @@
-#include "OLED_GUI.h"
+#include "oledmod/OLED_GUI.h"
 #include <stdio.h>
-#include "DEV_Config.h"
+#include "oledmod/DEV_Config.h"
 //OLED_DIS sOLED_DIS;
 
 void GUI_Swop(POINT Point1, POINT Point2)

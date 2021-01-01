@@ -3,10 +3,10 @@
 #include <chrono>
 #include <iostream>
 
-#include "menu.hpp"
-#include "Safe_Queue.hpp"
+#include "menunmod/menu.hpp"
+#include "menunmod/Safe_Queue.hpp"
 extern "C" {
-	#include "OLED_GUI.h"
+	#include "oledmod/OLED_GUI.h"
 }
 
 bool stop_thread = false;

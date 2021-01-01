@@ -1,7 +1,7 @@
 #ifndef GENERATEDMENU_HPP
 #define GENERATEDMENU_HPP
-#include "ExitNode.hpp"
-#include "MenuNode.hpp"
+#include "nodemod/ExitNode.hpp"
+#include "nodemod/MenuNode.hpp"
 ExitNode t0 = ExitNode("Exit?");
 MenuNode t1 = MenuNode("Head", &t0);
 MenuNode t2 = MenuNode("Item 1", &t1);

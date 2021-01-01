@@ -1,4 +1,4 @@
-#include "Node.hpp"
+#include "nodemod/Node.hpp"
 
 Node::Node(const char* name, Node* previous) {
     name_ = name;

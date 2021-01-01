@@ -1,4 +1,4 @@
-#include "ExitNode.hpp"
+#include "nodemod/ExitNode.hpp"
 
 ExitNode::ExitNode(const char* name):Node(name, nullptr) {}
 

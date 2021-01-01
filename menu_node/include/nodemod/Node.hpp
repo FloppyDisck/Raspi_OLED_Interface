@@ -5,7 +5,7 @@
 #include <string>
 
 extern "C" {
-	#include "OLED_GUI.h"
+	#include "oledmod/OLED_GUI.h"
 }
 
 #define WIDTH OLED_X_MAXPIXEL
