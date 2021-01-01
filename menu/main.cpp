@@ -3,8 +3,8 @@
 #include <chrono>
 #include <iostream>
 
-#include "menunmod/menu.hpp"
-#include "menunmod/Safe_Queue.hpp"
+#include "menumod/menu.hpp"
+#include "menumod/Safe_Queue.hpp"
 extern "C" {
 	#include "oledmod/OLED_GUI.h"
 }
