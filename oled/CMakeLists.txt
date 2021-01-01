@@ -10,7 +10,4 @@ target_include_directories( ${PROJECT_NAME}
     PUBLIC ${PROJECT_SOURCE_DIR}/include
 )
 
-target_link_libraries(${PROJECT_NAME} ${MULTITHREAD} ${WIREPI})
-
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_LIST_DIR}/fonts ${CMAKE_BINARY_DIR}/oled/fonts)
+target_link_libraries(${PROJECT_NAME} mod::fonts ${MULTITHREAD} ${WIREPI})
