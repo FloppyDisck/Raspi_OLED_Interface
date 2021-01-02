@@ -18,7 +18,7 @@ class ModprobeOption : public BinaryOptionNode {
 class ModprobeNode : public MenuNode {
     public:
         ModprobeNode(const char* name, Node* previous);
-        void draw() virtual;
+        void draw() override;
     protected:
         Node* selectItem(int option) override;
         std::vector<ModprobeOption> options;
