@@ -8,8 +8,21 @@ extern "C" {
 	#include "oledmod/OLED_GUI.h"
 }
 
+//Screen size
 #define WIDTH OLED_X_MAXPIXEL
 #define HEIGHT OLED_Y_MAXPIXEL
+
+//Buttons
+#define JOY_U 0
+#define JOY_D 1
+#define JOY_L 2
+#define JOY_R 3
+#define JOY_M 5
+#define KEY1 6
+#define KEY2 7
+#define KEY3 8
+
+//Standard used to build other nodes
 
 class Node {
     public:
