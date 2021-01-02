@@ -1,6 +1,6 @@
 #include "nodemod/ModprobeNode.hpp"
 
-ModprobeOption::ModprobeOption(const char* name, Node* previous, std::string modName) : BinaryOptionNode(name, previous, true, false) {
+ModprobeOption::ModprobeOption(const char* name, Node* previous, std::string modName) : BinaryOptionNode(name, previous) {
     turnOff = ("sudo modprobe -r " + modName).c_str();
     turnOn = ("sudo modprobe " + modName).c_str();
 }
