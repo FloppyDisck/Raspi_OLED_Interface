@@ -4,7 +4,7 @@ MenuNode::MenuNode(const char* name, Node* previous):Node(name, previous) {}
 
 Node* MenuNode::input(int input) {
 	//Up arrow
-	if (input==0) {
+	if (input==JOY_U) {
 		if (selected_ == 0) { 
 			//Set view to bottom
 			selected_ = children_.size() -1;
@@ -21,7 +21,7 @@ Node* MenuNode::input(int input) {
 		}
 	}
 	//Down arrow
-	else if (input==1) {
+	else if (input==JOY_D) {
 		if (selected_ == children_.size() -1) { 
 			selected_ = 0;
 			scope_ = 0;
@@ -33,12 +33,13 @@ Node* MenuNode::input(int input) {
 		}
 	}
 	//Left arrow
-	else if (input==2) {
+	else if (input==JOY_L) {
 		return previous_;
 	}
 	//Right arrow or middle click
-	else if (input==3 || input==4) {
-		return children_[selected_];
+	else if (input==JOY_R || input==JOY_M) {
+		//return children_[selected_];
+		return selectItem(selected_);
 	}
 
 	return this;
@@ -57,6 +58,10 @@ void MenuNode::draw() {
 
 		drawItem((item == selected_), 1, itemTop, xPadding_, yPadding_, font, children_[item]->name(), children_[item]->nameLen());
 	}
-	OLED_Display();		
+	OLED_Display();
 	OLED_Clear(0x00);
+}
+
+Node* MenuNode::selectItem(int option) {
+	return children_[option];
 }
