@@ -17,10 +17,10 @@ extern "C" {
 #define JOY_D 1
 #define JOY_L 2
 #define JOY_R 3
-#define JOY_M 5
-#define KEY1 6
-#define KEY2 7
-#define KEY3 8
+#define JOY_M 4
+#define KEY1 5
+#define KEY2 6
+#define KEY3 7
 
 //Standard used to build other nodes
 
