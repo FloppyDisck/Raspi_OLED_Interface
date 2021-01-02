@@ -2,6 +2,8 @@ project(node_lib)
 
 add_library(${PROJECT_NAME} src/ExitNode.cpp
                             src/MenuNode.cpp
+                            src/BinaryOptionNode.cpp
+                            src/ModprobeNode.cpp
                             src/Node.cpp)
 
 add_library(mod::node ALIAS ${PROJECT_NAME})
