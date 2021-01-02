@@ -1,7 +1,7 @@
 #include "nodemod/BinaryOptionNode.hpp"
 
-BinaryOptionNode::BinaryOptionNode(const char* name, Node* previous, bool showState, bool initState) :
-Node(name, previous), verbose(showState), state(initState) {
+BinaryOptionNode::BinaryOptionNode(const char* name, Node* previous) :
+Node(name, previous){
     baseName = name_;
     if (verbose) {
         this->updateName();
@@ -36,7 +36,7 @@ void BinaryOptionNode::updateName() {
         suffix = " : OFF";
     }
 
-    std::string newName = (baseName+" : ON");
+    std::string newName = (baseName+suffix);
     name_ = newName.c_str();
     nameLen_ = newName.size();
 }
