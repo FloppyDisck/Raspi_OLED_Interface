@@ -1,7 +1,8 @@
 [   {
         "libraries":[
             "ExitNode.hpp",
-            "MenuNode.hpp"
+            "MenuNode.hpp",
+            "ModprobeNode.hpp"
         ]
 
     },
@@ -10,30 +11,35 @@
         "type":"MenuNode",
         "children":[
             {
-                "name":"Item 1",
-                "type":"MenuNode",
-                "children":[
-                    {
-                        "name":"Other item 1",
-                        "type":"MenuNode",
-                        "children":[]
-                    },
-                    {
-                        "name":"Other item 1",
-                        "type":"MenuNode",
-                        "children":[]
-                    },
-                    {
-                        "name":"Other item 1",
-                        "type":"MenuNode",
-                        "children":[]
-                    }
-                ]
+                "name":"OTG",
+                "type":"ModprobeNode",
+                "children":[]
             },
             {
                 "name":"Item 2",
                 "type":"MenuNode",
-                "children":[]
+                "children":[
+                    {
+                        "name":"Other Item 1",
+                        "type":"MenuNode",
+                        "children":[]
+                    },
+                    {
+                        "name":"Other Item 2",
+                        "type":"MenuNode",
+                        "children":[]
+                    },
+                    {
+                        "name":"Other Item 3",
+                        "type":"MenuNode",
+                        "children":[]
+                    },
+                    {
+                        "name":"Other Item 4",
+                        "type":"MenuNode",
+                        "children":[]
+                    }
+                ]
             },
             {
                 "name":"Item 3",
