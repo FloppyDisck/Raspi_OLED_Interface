@@ -25,7 +25,7 @@ with open(json_file) as f:
     output_file.write("#ifndef GENERATEDMENU_HPP\n#define GENERATEDMENU_HPP\n")
 
     for lib in data[0]["libraries"]:
-        output_file.write("#include \"{}\"\n".format(lib))
+        output_file.write("#include \"nodemod/{}\"\n".format(lib))
 
 
     output_file.write("ExitNode t0 = ExitNode(\"Exit?\");\n")
