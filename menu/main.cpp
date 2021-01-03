@@ -45,7 +45,7 @@ void input_listener() {
 	}
 }
 
-int main(void)
+int main()
 {
 
 	//1.System Initialization
@@ -68,6 +68,7 @@ int main(void)
 			int choice = Input_Queue.dequeue();
 			std::cout << "Menu: " << currentMenu->name() << " Input: " << choice << std::endl;
 			currentMenu = currentMenu->input(choice);
+			std::cout << "Returned menu: " << currentMenu->name() << std::endl;
 
 			if (currentMenu == nullptr) {
 				//System Exit
