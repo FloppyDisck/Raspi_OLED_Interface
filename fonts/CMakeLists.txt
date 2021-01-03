@@ -1,4 +1,4 @@
-project(fonts_lib)
+project(fonts)
 
 add_library(${PROJECT_NAME} src/font8.c
                             src/font12.c

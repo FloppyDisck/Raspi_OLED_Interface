@@ -13,7 +13,13 @@ def getMenus(tab, previous):
 
     current = "t"+str(nodeCount)
 
-    output_file.write("{0} {1} = {0}(\"{2}\", &{3});\n".format(tab["type"], current, tab["name"], previous))
+    line2write = "{0} {1} = {0}(\"{2}\", &{3}".format(tab["type"], current, tab["name"], previous)
+
+    if (len(tab["args"]) > 0):
+        for arg in tab["args"]:
+            line2write = line2write + ", {0}".format(arg)
+
+    output_file.write(line2write + ");\n")
     
     if (len(tab["children"]) > 0):
         for child in tab["children"]:
@@ -25,7 +31,7 @@ with open(json_file) as f:
     output_file.write("#ifndef GENERATEDMENU_HPP\n#define GENERATEDMENU_HPP\n")
 
     for lib in data[0]["libraries"]:
-        output_file.write("#include \"nodemod/{}\"\n".format(lib))
+        output_file.write("#include \"{}\"\n".format(lib))
 
 
     output_file.write("ExitNode t0 = ExitNode(\"Exit?\");\n")

@@ -1,4 +1,4 @@
-project(oled_lib)
+project(oled)
 
 add_library(${PROJECT_NAME} src/DEV_Config.c
                             src/OLED_Driver.c

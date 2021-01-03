@@ -12,9 +12,9 @@ class MenuNode : public Node {
 	public:
 		MenuNode(const char* name, Node* previous);
 		Node* input(int input);
-		virtual void draw();
+		void draw();
 	protected:
-		virtual Node* selectItem(int option);
+		Node* selectItem(int option);
 
 		int selected_=0;
 		int scope_=0;

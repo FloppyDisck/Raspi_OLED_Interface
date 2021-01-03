@@ -1,42 +1,31 @@
 [   {
         "libraries":[
-            "ExitNode.hpp",
-            "MenuNode.hpp",
-            "ModprobeNode.hpp"
+            "nodemod/ExitNode.hpp",
+            "nodemod/MenuNode.hpp",
+            "statemod/IntegerItem.hpp"
         ]
 
     },
     {
         "name":"Head",
         "type":"MenuNode",
+        "args": [],
         "children":[
             {
                 "name":"OTG",
-                "type":"ModprobeNode",
+                "type":"MenuNode",
+                "args": [],
                 "children":[]
             },
             {
-                "name":"Item 2",
+                "name":"StateItem Test",
                 "type":"MenuNode",
+                "args": [],
                 "children":[
                     {
-                        "name":"Other Item 1",
-                        "type":"MenuNode",
-                        "children":[]
-                    },
-                    {
-                        "name":"Other Item 2",
-                        "type":"MenuNode",
-                        "children":[]
-                    },
-                    {
-                        "name":"Other Item 3",
-                        "type":"MenuNode",
-                        "children":[]
-                    },
-                    {
-                        "name":"Other Item 4",
-                        "type":"MenuNode",
+                        "name":"Integer",
+                        "type":"IntegerItem",
+                        "args": [0, 10, 1, 1],
                         "children":[]
                     }
                 ]
@@ -44,21 +33,25 @@
             {
                 "name":"Item 3",
                 "type":"MenuNode",
+                "args": [],
                 "children":[]
             },
             {
                 "name":"Item 4",
                 "type":"MenuNode",
+                "args": [],
                 "children":[]
             },
             {
                 "name":"Item 5",
                 "type":"MenuNode",
+                "args": [],
                 "children":[]
             },
             {
                 "name":"Item 6",
                 "type":"MenuNode",
+                "args": [],
                 "children":[]
             }
         ]
