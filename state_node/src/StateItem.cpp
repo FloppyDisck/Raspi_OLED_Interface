@@ -65,3 +65,8 @@ T StateItem<T>::update(bool dir) {
     }
 }
 
+//Instantiate the template classes
+template class StateItem<int>;
+template class StateItem<float>;
+template class StateItem<double>;
+
