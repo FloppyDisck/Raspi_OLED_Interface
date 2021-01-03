@@ -1,5 +1,6 @@
 #include <vector>
 #include <thread>
+#include <atomic>
 #include <chrono>
 #include <iostream>
 
@@ -9,7 +10,7 @@ extern "C" {
 	#include "oledmod/OLED_GUI.h"
 }
 
-bool stop_thread = false;
+std::atomic<bool> stop_thread = false;
 Safe_Queue<int> Input_Queue;
 
 void input_listener() {
