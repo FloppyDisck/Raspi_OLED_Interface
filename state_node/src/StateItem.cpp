@@ -45,14 +45,14 @@ T StateItem<T>::getState() {
 
 template<typename T>
 void StateItem<T>::draw() {
-    int mid = OLED_X_MAXPIXEL/2 - (nameLen_ * font->Width);
+    int mid = OLED_X_MAXPIXEL/2 - (nameLen_ * font->Width)/2;
     drawItem(false, mid, 1, 0, 0, font, name_, nameLen_);
 
 
     std::string valStr = std::to_string(state);
     const char* valC = valStr.c_str();
     int valN = valStr.size();
-    mid = OLED_X_MAXPIXEL/2 - (valN * font->Width);
+    mid = OLED_X_MAXPIXEL/2 - (valN * font->Width)/2;
     drawItem(false, mid, 1 + (2*itemSize_), 0, 0, font, valC, valN);
     OLED_Display();
     OLED_Clear(0x00);
