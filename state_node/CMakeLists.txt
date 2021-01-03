@@ -1,7 +1,7 @@
 project(states)
 
 add_library(${PROJECT_NAME} src/StateItem.cpp
-                            src/IntegerItem.cpp)
+        )
 
 add_library(mod::state ALIAS ${PROJECT_NAME})
 

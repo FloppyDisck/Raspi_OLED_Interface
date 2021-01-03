@@ -23,4 +23,6 @@ protected:
 
 };
 
+using IntegerItem = StateItem<int>;
+
 #endif
