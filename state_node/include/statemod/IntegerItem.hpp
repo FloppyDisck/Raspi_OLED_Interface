@@ -9,7 +9,7 @@ public:
     void draw() override;
 
 protected:
-    virtual int update(bool dir) override;
+    int update(bool dir) override;
 };
 
 #endif

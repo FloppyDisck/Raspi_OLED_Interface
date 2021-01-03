@@ -2,6 +2,7 @@
         "libraries":[
             "nodemod/ExitNode.hpp",
             "nodemod/MenuNode.hpp",
+            "statemod/StateItem.hpp",
             "statemod/IntegerItem.hpp"
         ]
 
