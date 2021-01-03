@@ -48,6 +48,8 @@ void StateItem<T>::draw() {
     int valN = valStr.size();
     mid = OLED_X_MAXPIXEL/2 - (valN * font->Width);
     drawItem(false, mid, 1, 0, 0, font, valC, valN);
+    OLED_Display();
+    OLED_Clear(0x00);
 }
 
 template<typename T>
