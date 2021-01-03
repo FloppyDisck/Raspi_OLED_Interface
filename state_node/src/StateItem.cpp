@@ -17,12 +17,18 @@ Node *StateItem<T>::input(int input) {
         //Left arrow
     else if (input==JOY_L) {
         //Goes left or negative
-        this->updateState(false);
+        state -= step;
+        if (state < min) {
+            state = min;
+        }
     }
         //Right arrow
     else if (input==JOY_R) {
         //Goes right or positive
-        this->updateState(true);
+        state += step;
+        if (state > max) {
+            state = max;
+        }
     }
 
     else if (input==JOY_M) {
@@ -50,21 +56,6 @@ void StateItem<T>::draw() {
     drawItem(false, mid, 1 + (2*itemSize_), 0, 0, font, valC, valN);
     OLED_Display();
     OLED_Clear(0x00);
-}
-
-template<typename T>
-T StateItem<T>::updateState(bool dir) {
-    if (dir) {
-        state += step;
-        if (state > max) {
-            state = max;
-        }
-    } else {
-        state -= step;
-        if (state < min) {
-            state = min;
-        }
-    }
 }
 
 //Instantiate the template classes
