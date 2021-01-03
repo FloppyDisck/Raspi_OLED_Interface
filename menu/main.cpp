@@ -14,33 +14,45 @@ std::atomic<bool> stop_thread = false;
 Safe_Queue<int> Input_Queue;
 
 void input_listener() {
-	int time = 175;
+	// Time to wait between inputs
+    int time = 175;
+    // Avoid duplicates
+	int last = -1;
 
 	while(!stop_thread) {
+	    int current;
 		if(KEY_UP_RD == 0) {
-			Input_Queue.enqueue(KEY_UP_ID);
+		    current = KEY_UP_ID;
         }
-        if(KEY_DOWN_RD == 0) {
-			Input_Queue.enqueue(KEY_DOWN_ID);
+        else if(KEY_DOWN_RD == 0) {
+            current = KEY_DOWN_ID;
         }
-        if(KEY_LEFT_RD == 0) {
-			Input_Queue.enqueue(KEY_LEFT_ID);
+        else if(KEY_LEFT_RD == 0) {
+            current = KEY_LEFT_ID;
         }
-        if(KEY_RIGHT_RD == 0) {
-			Input_Queue.enqueue(KEY_RIGHT_ID);
+        else if(KEY_RIGHT_RD == 0) {
+            current = KEY_RIGHT_ID;
         }
-        if(KEY_PRESS_RD == 0) {
-			Input_Queue.enqueue(KEY_MID_ID);
+        else if(KEY_PRESS_RD == 0) {
+            current = KEY_MID_ID;
         }
-        if(KEY1_RD == 0) {
-			Input_Queue.enqueue(KEY1_ID);
+        else if(KEY1_RD == 0) {
+            current = KEY1_ID;
         }
-        if(KEY2_RD == 0) {
-			Input_Queue.enqueue(KEY2_ID);
+        else if(KEY2_RD == 0) {
+            current = KEY2_ID;
         }
-        if(KEY3_RD == 0) {
-			Input_Queue.enqueue(KEY3_ID);
+        else if(KEY3_RD == 0) {
+            current = KEY3_ID;
+        } else {
+            current = -1;
         }
+
+        // Avoid double input
+        if (last != current) {
+            Input_Queue.enqueue(current);
+        }
+        last = current;
 
 		std::this_thread::sleep_for(std::chrono::milliseconds(time));
 	}
