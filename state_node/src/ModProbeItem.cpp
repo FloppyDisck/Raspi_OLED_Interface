@@ -1,7 +1,7 @@
 #include "statemod/ModProbeItem.hpp"
 
 ModProbeItem::ModProbeItem(const char* name, Node *previous) :
-StringItem(name, previous, {"OTG Off, Ethernet, K&M"}), moduleItems({"dwc2", "g_ether", "g_hid"}) {}
+StringItem(name, previous, {"OTG Off", "Ethernet", "K&M"}), moduleItems({"dwc2", "g_ether", "g_hid"}) {}
 
 Node *ModProbeItem::input(int input) {
     //return StringItem::input(input);
