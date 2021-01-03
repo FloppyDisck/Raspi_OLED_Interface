@@ -47,7 +47,7 @@ void StateItem<T>::draw() {
     const char* valC = valStr.c_str();
     int valN = valStr.size();
     mid = OLED_X_MAXPIXEL/2 - (valN * font->Width);
-    drawItem(false, mid, 1, 0, 0, font, valC, valN);
+    drawItem(false, mid, 1 + (2*itemSize_), 0, 0, font, valC, valN);
     OLED_Display();
     OLED_Clear(0x00);
 }
