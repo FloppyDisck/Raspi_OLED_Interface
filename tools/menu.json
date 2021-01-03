@@ -2,7 +2,8 @@
         "libraries":[
             "nodemod/ExitNode.hpp",
             "nodemod/MenuNode.hpp",
-            "statemod/StateItem.hpp"
+            "statemod/StateItem.hpp",
+            "statemod/StringItem.hpp"
         ]
 
     },
@@ -38,6 +39,12 @@
                         "name":"Double",
                         "type":"DoubleItem",
                         "args": [0.0, 10.0, 0.5, 1.0],
+                        "children":[]
+                    },
+                    {
+                        "name":"String",
+                        "type":"StringItem",
+                        "args": ["{\"Item 1\", \"Item 2\", \"Item 3\",}"],
                         "children":[]
                     }
                 ]
