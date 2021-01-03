@@ -2,7 +2,7 @@
 #define STATEITEM_HPP
 #include "nodemod/Node.hpp"
 
-template <class T>
+template <typename T>
 class StateItem : public Node {
 public:
     StateItem(const char* name, Node* previous, T minValue, T maxValue, T stepQnty, T initState);
