@@ -1,58 +1,77 @@
 [   {
         "libraries":[
-            "ExitNode.hpp",
-            "MenuNode.hpp"
+            "nodemod/ExitNode.hpp",
+            "nodemod/MenuNode.hpp",
+            "statemod/StateItem.hpp",
+            "statemod/StringItem.hpp",
+            "statemod/ModProbeItem.hpp"
         ]
 
     },
     {
         "name":"Head",
         "type":"MenuNode",
+        "args": [],
         "children":[
             {
-                "name":"Item 1",
+                "name":"OTG Settings",
+                "type":"ModProbeItem",
+                "args": [],
+                "children":[]
+            },
+            {
+                "name":"StateItem Test",
                 "type":"MenuNode",
+                "args": [],
                 "children":[
                     {
-                        "name":"Other item 1",
-                        "type":"MenuNode",
+                        "name":"Integer",
+                        "type":"IntegerItem",
+                        "args": [0, 10, 1, 1],
                         "children":[]
                     },
                     {
-                        "name":"Other item 1",
-                        "type":"MenuNode",
+                        "name":"Float",
+                        "type":"FloatItem",
+                        "args": [0.0, 10.0, 0.5, 1.0],
                         "children":[]
                     },
                     {
-                        "name":"Other item 1",
-                        "type":"MenuNode",
+                        "name":"Double",
+                        "type":"DoubleItem",
+                        "args": [0.0, 10.0, 0.5, 1.0],
+                        "children":[]
+                    },
+                    {
+                        "name":"String",
+                        "type":"StringItem",
+                        "args": ["{\"Item 1\", \"Item 2\", \"Item 3\",}"],
                         "children":[]
                     }
                 ]
             },
             {
-                "name":"Item 2",
-                "type":"MenuNode",
-                "children":[]
-            },
-            {
                 "name":"Item 3",
                 "type":"MenuNode",
+                "args": [],
                 "children":[]
             },
             {
                 "name":"Item 4",
                 "type":"MenuNode",
+                "args": [],
                 "children":[]
             },
             {
                 "name":"Item 5",
                 "type":"MenuNode",
+                "args": [],
                 "children":[]
             },
             {
                 "name":"Item 6",
                 "type":"MenuNode",
+                "args": [],
                 "children":[]
             }
         ]

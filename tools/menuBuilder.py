@@ -13,7 +13,13 @@ def getMenus(tab, previous):
 
     current = "t"+str(nodeCount)
 
-    output_file.write("{0} {1} = {0}(\"{2}\", &{3});\n".format(tab["type"], current, tab["name"], previous))
+    line2write = "{0} {1} = {0}(\"{2}\", &{3}".format(tab["type"], current, tab["name"], previous)
+
+    if (len(tab["args"]) > 0):
+        for arg in tab["args"]:
+            line2write = line2write + ", {0}".format(arg)
+
+    output_file.write(line2write + ");\n")
     
     if (len(tab["children"]) > 0):
         for child in tab["children"]:
