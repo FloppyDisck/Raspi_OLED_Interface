@@ -23,5 +23,7 @@ protected:
 };
 
 using IntegerItem = StateItem<int>;
+using FloatItem = StateItem<float>;
+using DoubleItem = StateItem<double>;
 
 #endif

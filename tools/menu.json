@@ -27,6 +27,18 @@
                         "type":"IntegerItem",
                         "args": [0, 10, 1, 1],
                         "children":[]
+                    },
+                    {
+                        "name":"Float",
+                        "type":"FloatItem",
+                        "args": [0.0, 10.0, 0.5, 1.0],
+                        "children":[]
+                    },
+                    {
+                        "name":"Double",
+                        "type":"DoubleItem",
+                        "args": [0.0, 10.0, 0.5, 1.0],
+                        "children":[]
                     }
                 ]
             },
