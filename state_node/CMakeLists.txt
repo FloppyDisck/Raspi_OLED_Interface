@@ -1,7 +1,8 @@
 project(states)
 
 add_library(${PROJECT_NAME} src/StateItem.cpp
-                            src/StringItem.cpp)
+                            src/StringItem.cpp
+                            src/ModProbeItem.cpp)
 
 add_library(mod::state ALIAS ${PROJECT_NAME})
 

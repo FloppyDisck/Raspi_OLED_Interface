@@ -3,7 +3,8 @@
             "nodemod/ExitNode.hpp",
             "nodemod/MenuNode.hpp",
             "statemod/StateItem.hpp",
-            "statemod/StringItem.hpp"
+            "statemod/StringItem.hpp",
+            "statemod/ModProbeItem.hpp"
         ]
 
     },
@@ -13,8 +14,8 @@
         "args": [],
         "children":[
             {
-                "name":"OTG",
-                "type":"MenuNode",
+                "name":"OTG Settings",
+                "type":"ModProbeItem",
                 "args": [],
                 "children":[]
             },

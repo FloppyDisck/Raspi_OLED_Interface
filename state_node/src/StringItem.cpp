@@ -1,7 +1,7 @@
 #include "statemod/StringItem.hpp"
 
 StringItem::StringItem(const char *name, Node *previous, const std::vector<const char *>& items) :
-IntegerItem(name, previous, 0, items.size(), 1, 0), literalItems(items) {}
+IntegerItem(name, previous, 0, items.size()-1, 1, 0), literalItems(items) {}
 
 Node *StringItem::input(int input) {
     return StateItem::input(input);
