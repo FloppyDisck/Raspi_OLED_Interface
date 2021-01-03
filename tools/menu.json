@@ -4,6 +4,7 @@
             "nodemod/MenuNode.hpp",
             "statemod/StateItem.hpp",
             "statemod/StringItem.hpp",
+            "statemod/BinaryItem.hpp",
             "statemod/ModProbeItem.hpp"
         ]
 
@@ -63,15 +64,15 @@
                 "children":[]
             },
             {
-                "name":"Item 5",
-                "type":"MenuNode",
-                "args": [],
+                "name":"Restart",
+                "type":"BinaryItem",
+                "args": ["[]() { system(\"sudo reboot\"); }"],
                 "children":[]
             },
             {
-                "name":"Item 6",
-                "type":"MenuNode",
-                "args": [],
+                "name":"Power Off",
+                "type":"BinaryItem",
+                "args": ["[]() { system(\"sudo poweroff\"); }"],
                 "children":[]
             }
         ]
