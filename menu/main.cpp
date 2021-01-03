@@ -45,10 +45,11 @@ void input_listener() {
 	}
 }
 
-int main()
+int main(void)
 {
 
 	//1.System Initialization
+    printf("*********Init System*********\r\n");
 	if(DEV_ModuleInit())
 		exit(0);
 	
@@ -59,31 +60,32 @@ int main()
 	GUI_LaunchScreen();
 
 	//Start input thread
+    printf("******Start Input Thread*****\r\n");
 	std::thread input_thread(input_listener);
 
 	Node* currentMenu = head;
 
+    printf("********Starting Loop********\r\n");
 	while (true) {
 		if (!Input_Queue.empty()) {
 			int choice = Input_Queue.dequeue();
 			std::cout << "Menu: " << currentMenu->name() << " Input: " << choice << std::endl;
 			currentMenu = currentMenu->input(choice);
-			std::cout << "Returned menu: " << currentMenu->name() << std::endl;
 
 			if (currentMenu == nullptr) {
 				//System Exit
+                printf("*********System Exi**********\r\n");
 				GUI_ExitScreen();
 				DEV_ModuleExit();
 				stop_thread = true; //Close input thread loop
 				input_thread.join(); //Close thread
-				return 0;
+				break;
 			}
 		}
 
 		currentMenu->draw();
 	}
-	
-
+    printf("********Closed Loop********\r\n");
 }
 
 //TODO: fins a way to make a node for application running
