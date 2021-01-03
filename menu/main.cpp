@@ -15,7 +15,7 @@ Safe_Queue<int> Input_Queue;
 
 void input_listener() {
 	// Time to wait between inputs
-    int time = 175;
+    int time = 50;
     // Avoid duplicates
 	int last = -1;
 
