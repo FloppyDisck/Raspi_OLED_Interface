@@ -17,12 +17,20 @@ Node *StateItem<T>::input(int input) {
         //Left arrow
     else if (input==JOY_L) {
         //Goes left or negative
-        this->update(false);
+        //this->update(false);
+        state += step;
+        if (state > max) {
+            state = max;
+        }
     }
         //Right arrow
     else if (input==JOY_R) {
         //Goes right or positive
-        this->update(true);
+        //this->update(true);
+        state -= step;
+        if (state < min) {
+            state = min;
+        }
     }
 
     else if (input==JOY_M) {
