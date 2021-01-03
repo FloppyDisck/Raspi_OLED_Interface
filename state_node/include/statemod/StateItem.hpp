@@ -12,7 +12,7 @@ public:
 
 protected:
     T min, max, step, state;
-    virtual T update(bool dir);
+    virtual T updateState(bool dir);
 
     //Drawing variables
     sFONT* font = &Font12;

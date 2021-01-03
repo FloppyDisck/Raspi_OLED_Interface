@@ -17,20 +17,12 @@ Node *StateItem<T>::input(int input) {
         //Left arrow
     else if (input==JOY_L) {
         //Goes left or negative
-        //this->update(false);
-        state += step;
-        if (state > max) {
-            state = max;
-        }
+        this->updateState(false);
     }
         //Right arrow
     else if (input==JOY_R) {
         //Goes right or positive
-        //this->update(true);
-        state -= step;
-        if (state < min) {
-            state = min;
-        }
+        this->updateState(true);
     }
 
     else if (input==JOY_M) {
@@ -61,7 +53,7 @@ void StateItem<T>::draw() {
 }
 
 template<typename T>
-T StateItem<T>::update(bool dir) {
+T StateItem<T>::updateState(bool dir) {
     if (dir) {
         state += step;
         if (state > max) {
