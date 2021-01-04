@@ -5,7 +5,7 @@
 #include <string>
 
 extern "C" {
-	#include "oledmod/OLED_GUI.h"
+	#include "OLED_GUI.h"
 }
 
 //Screen size

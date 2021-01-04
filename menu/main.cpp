@@ -7,7 +7,7 @@
 #include "menumod/menu.hpp"
 #include "menumod/Safe_Queue.hpp"
 extern "C" {
-	#include "oledmod/OLED_GUI.h"
+	#include "OLED_GUI.h"
 }
 
 std::atomic<bool> stop_thread = false;
