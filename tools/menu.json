@@ -66,13 +66,13 @@
             {
                 "name":"Restart",
                 "type":"BinaryItem",
-                "args": ["[]() { system(\"sudo reboot\"); }"],
+                "args": ["[]() { (a)?system(\"sudo reboot\"):0; }"],
                 "children":[]
             },
             {
                 "name":"Power Off",
                 "type":"BinaryItem",
-                "args": ["[]() { system(\"sudo poweroff\"); }"],
+                "args": ["[](bool a) { (a)?system(\"sudo poweroff\"):0; }"],
                 "children":[]
             }
         ]

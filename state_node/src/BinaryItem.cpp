@@ -1,7 +1,9 @@
 #include "statemod/BinaryItem.hpp"
 
+#include <utility>
+
 BinaryItem::BinaryItem(const char *name, Node *previous, std::function<void(bool)> function) :
-IntegerItem(name, previous, 0, 1, 1, 0), f(function) { }
+IntegerItem(name, previous, 0, 1, 1, 0), f(std::move(function)) { }
 
 Node *BinaryItem::input(int input) {
         //Left arrow
