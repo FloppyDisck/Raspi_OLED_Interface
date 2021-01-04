@@ -4,11 +4,7 @@ project(RPi_Menu)
 
 set(MULTITHREAD "pthread")
 
-include(FindPkgConfig)
-pkg_search_module(WOLED REQUIRED woled)
-include_directories(${WOLED_INCLUDE_DIRS})
-link_directories(${WOLED_LIBRARY_DIRS})
-
+find_package(woled REQUIRED)
 
 link_libraries(stdc++fs)
 

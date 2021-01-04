@@ -10,4 +10,4 @@ target_include_directories( ${PROJECT_NAME}
     PUBLIC ${PROJECT_SOURCE_DIR}/include
 )
 
-target_link_libraries(${PROJECT_NAME} ${WOLED_LIBRARIES} ${MULTITHREAD})
+target_link_libraries(${PROJECT_NAME} woled ${MULTITHREAD})
