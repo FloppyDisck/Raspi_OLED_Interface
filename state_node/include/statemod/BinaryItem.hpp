@@ -6,6 +6,7 @@
 #include <functional>
 #include "statemod/StateItem.hpp"
 
+
 class BinaryItem : public IntegerItem {
 public:
     BinaryItem(const char* name, Node* previous, std::function<void(bool)> function);
