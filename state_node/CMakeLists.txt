@@ -2,6 +2,7 @@ project(states)
 
 add_library(${PROJECT_NAME} src/StateItem.cpp
                             src/StringItem.cpp
+                            src/BinaryItem.cpp
                             src/ModProbeItem.cpp)
 
 add_library(mod::state ALIAS ${PROJECT_NAME})
