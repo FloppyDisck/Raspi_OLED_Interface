@@ -3,7 +3,12 @@ cmake_minimum_required(VERSION 3.5)
 project(RPi_Menu)
 
 set(MULTITHREAD "pthread")
-set(WIREPI "wiringPi")
+
+include(FindPkgConfig)
+pkg_search_module(WOLED REQUIRED woled)
+include_directories(${WOLED_INCLUDE_DIRS})
+link_directories(${WOLED_LIBRARY_DIRS})
+
 
 link_libraries(stdc++fs)
 
@@ -16,5 +21,3 @@ add_definitions(-DUSE_WIRINGPI_LIB)
 add_subdirectory(menu)
 add_subdirectory(node)
 add_subdirectory(state_node)
-add_subdirectory(oled)
-add_subdirectory(fonts)
