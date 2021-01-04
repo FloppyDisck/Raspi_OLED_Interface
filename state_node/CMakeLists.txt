@@ -11,4 +11,4 @@ target_include_directories( ${PROJECT_NAME}
         PUBLIC ${PROJECT_SOURCE_DIR}/include
         )
 
-target_link_libraries(${PROJECT_NAME} mod::node mod::oled ${MULTITHREAD} ${WIREPI})
+target_link_libraries(${PROJECT_NAME} mod::node ${WOLED_LIBRARIES} ${MULTITHREAD})
