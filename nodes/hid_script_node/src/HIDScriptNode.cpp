@@ -182,9 +182,14 @@ Node(name, previous), modprobe(modprobe){}
 
 Node * HIDScriptNode::input(int input) {
     std::string word = "Hello, testing, testing";
+
+    std::cout << "Testing modprobe" << std::endl;
+
     if (modprobe->getState() == 2) {
         for (char& c : word) {
+            std::cout << c << std::endl;
             std::string keypres = char2HID(c);
+            std::cout << keypres << std::endl;
             modprobe->HID_OUT << keypres;
             modprobe->HID_OUT << HID_EMPTY_PACKET;
         }
