@@ -37,6 +37,7 @@ Node *ModProbeItem::input(int input) {
         //Turn off all modules
         for (int i = moduleItems.size()-1; i >= 0; i--) {
             std::string cmd = stopMod + moduleItems[i];
+            std::cout << cmd << std::endl;
             system(cmd.c_str());
         }
 
@@ -45,11 +46,13 @@ Node *ModProbeItem::input(int input) {
             std::string cmd = startMod + moduleItems[0];
             system(cmd.c_str());
             cmd = startMod + moduleItems[state];
+            std::cout << cmd << std::endl;
             system(cmd.c_str());
         }
 
         // Open HID output file
         if (state == 2) {
+            std::cout << "Opening /dev/hidg0" << std::endl;
             HID_OUT.open("/dev/hidg0");
         }
 

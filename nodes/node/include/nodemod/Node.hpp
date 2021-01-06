@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <string>
-
+#include <iostream>
 extern "C" {
 	#include "woled/OLED_GUI.h"
 }

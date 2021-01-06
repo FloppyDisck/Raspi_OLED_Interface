@@ -99,6 +99,7 @@ int main(void)
 		currentMenu->draw();
 	}
     printf("********Closed Loop********\r\n");
+	return 0;
 }
 
 //TODO: fins a way to make a node for application running
