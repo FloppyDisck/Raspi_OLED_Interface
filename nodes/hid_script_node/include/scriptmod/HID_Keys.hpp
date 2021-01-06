@@ -16,16 +16,6 @@
 #define USB_HID_KEYS
 
 /**
- * Some prebuilt strings for packet construction
- */
-
-std::string HID_EMPTY = "\\0";
-std::string HID_PACKET_PREFIX = "\\x";
-std::string HID_PACKET_TRAIL = "\\0\\0\\0\\0\\0";
-std::string HID_EMPTY_PACKET = "\\0\\0\\0\\0\\0\\0\\0\\0";
-
-
-/**
  * Modifier masks - used for the first byte in the HID report.
  * NOTE: The second byte in the report is reserved, 0x00
  */
