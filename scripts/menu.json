@@ -63,7 +63,7 @@
                 "name":"Script Test",
                 "point":"",
                 "type":"HIDScriptNode",
-                "args": ["_MODPROBE"],
+                "args": ["&_MODPROBE"],
                 "children":[]
             },
             {
