@@ -177,25 +177,25 @@ std::string char2HID(char c) {
     return mod + HID_EMPTY + n2hexstr(hid_num) + HID_EMPTY + HID_PACKET_TRAIL;
 }
 
-HIDScriptNode::HIDScriptNode(const char *name, Node *previous, ModProbeItem *modprobe) :
-Node(name, previous), modprobe(modprobe){}
+HIDScriptNode::HIDScriptNode(const char *name, Node *previous) :
+Node(name, previous){}
 
 Node * HIDScriptNode::input(int input) {
     std::string word = "Hello, testing, testing";
 
     std::cout << "Testing modprobe" << std::endl;
 
-    if (modprobe->getState() == 2) {
-        for (char& c : word) {
-            std::cout << c << std::endl;
-            std::string keypress = char2HID(c);
-            std::cout << keypress << std::endl;
-            std::string command = "echo -ne \"" + keypress + "\" | sudo tee /dev/hidg0";
-            system(command.c_str());
-            //modprobe->HID_OUT << keypress;
-            //modprobe->HID_OUT << HID_EMPTY_PACKET;
-        }
+
+    for (char& c : word) {
+        std::cout << c << std::endl;
+        std::string keypress = char2HID(c);
+        std::cout << keypress << std::endl;
+        std::string command = "echo -ne \"" + keypress + "\" | sudo tee /dev/hidg0";
+        system(command.c_str());
+        //modprobe->HID_OUT << keypress;
+        //modprobe->HID_OUT << HID_EMPTY_PACKET;
     }
+
     std::string command = "echo -ne \"" + HID_EMPTY_PACKET + "\" | sudo tee /dev/hidg0";
     system(command.c_str());
 
