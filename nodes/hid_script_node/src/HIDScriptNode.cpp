@@ -190,13 +190,13 @@ Node * HIDScriptNode::input(int input) {
             std::cout << c << std::endl;
             std::string keypress = char2HID(c);
             std::cout << keypress << std::endl;
-            std::string command = "echo -ne \"" + keypress + "\" > /dev/hidg0";
+            std::string command = "echo -ne \"" + keypress + "\" | sudo tee /dev/hidg0";
             system(command.c_str());
             //modprobe->HID_OUT << keypress;
             //modprobe->HID_OUT << HID_EMPTY_PACKET;
         }
     }
-    std::string command = "echo -ne \"" + HID_EMPTY_PACKET + "\" > /dev/hidg0";
+    std::string command = "echo -ne \"" + HID_EMPTY_PACKET + "\" | sudo tee /dev/hidg0";
     system(command.c_str());
 
     return previous_;

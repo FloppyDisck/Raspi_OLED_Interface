@@ -34,8 +34,12 @@ Node *ModProbeItem::input(int input) {
     }
 
     else if (input==JOY_M) {
-        //Turn off all modules
-        system("sudo modprobe -a -r g_ether libcomposite dwc2");
+        //Try to remove old ether stuff
+        system("sudo modprobe -a -r g_ether usb_f_ecm u_ether");
+
+        //Disable HID
+        system("echo "" | sudo tee /sys/kernel/config/usb_gadget/keyboard/UDC");
+        system("sudo rm -r /sys/kernel/config/usb_gadget/mykeyboard/");
 
         //Turn on Ethernet
         if (state == 1) {
