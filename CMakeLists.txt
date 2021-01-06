@@ -15,5 +15,4 @@ add_definitions(-DUSE_WIRINGPI_LIB)
 #add_definitions(-DUSE_BCM2835_LIB)
 
 add_subdirectory(menu)
-add_subdirectory(node)
-add_subdirectory(state_node)
+add_subdirectory(nodes)

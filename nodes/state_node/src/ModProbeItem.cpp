@@ -1,7 +1,10 @@
 #include "statemod/ModProbeItem.hpp"
 
+// Some OTG setup info
+// https://linux-sunxi.org/USB_Gadget
+
 ModProbeItem::ModProbeItem(const char* name, Node *previous) :
-StringItem(name, previous, {"OTG Off", "Ethernet", "K&M"}), moduleItems({"dwc2", "g_ether", "g_hid"}) {}
+StringItem(name, previous, {"OTG Off", "Ethernet", "K&M"}), moduleItems({"dwc2 libcomposite", "g_ether", "& sudo bash /usr/local/bin/OTG_HID_INIT.sh"}) {}
 
 Node *ModProbeItem::input(int input) {
     //return StringItem::input(input);
@@ -43,6 +46,11 @@ Node *ModProbeItem::input(int input) {
             system(cmd.c_str());
             cmd = startMod + moduleItems[state];
             system(cmd.c_str());
+        }
+
+        // Open HID output file
+        if (state == 2) {
+            HID_OUT.open("/dev/hidg0");
         }
 
         return previous_;

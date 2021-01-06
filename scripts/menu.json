@@ -5,46 +5,54 @@
             "statemod/StateItem.hpp",
             "statemod/StringItem.hpp",
             "statemod/BinaryItem.hpp",
-            "statemod/ModProbeItem.hpp"
+            "statemod/ModProbeItem.hpp",
+            "scriptmod/HIDScriptNode.hpp"
         ]
 
     },
     {
         "name":"Head",
+        "point":"",
         "type":"MenuNode",
         "args": [],
         "children":[
             {
                 "name":"OTG Settings",
+                "point":"_MODPROBE",
                 "type":"ModProbeItem",
                 "args": [],
                 "children":[]
             },
             {
                 "name":"StateItem Test",
+                "point":"",
                 "type":"MenuNode",
                 "args": [],
                 "children":[
                     {
                         "name":"Integer",
+                        "point":"",
                         "type":"IntegerItem",
                         "args": [0, 10, 1, 1],
                         "children":[]
                     },
                     {
                         "name":"Float",
+                        "point":"",
                         "type":"FloatItem",
                         "args": [0.0, 10.0, 0.5, 1.0],
                         "children":[]
                     },
                     {
                         "name":"Double",
+                        "point":"",
                         "type":"DoubleItem",
                         "args": [0.0, 10.0, 0.5, 1.0],
                         "children":[]
                     },
                     {
                         "name":"String",
+                        "point":"",
                         "type":"StringItem",
                         "args": ["{\"Item 1\", \"Item 2\", \"Item 3\",}"],
                         "children":[]
@@ -52,25 +60,29 @@
                 ]
             },
             {
-                "name":"Item 3",
-                "type":"MenuNode",
-                "args": [],
+                "name":"Script Test",
+                "point":"",
+                "type":"HIDScriptNode",
+                "args": ["_MODPROBE"],
                 "children":[]
             },
             {
                 "name":"Item 4",
+                "point":"",
                 "type":"MenuNode",
                 "args": [],
                 "children":[]
             },
             {
                 "name":"Restart",
+                "point":"",
                 "type":"BinaryItem",
                 "args": ["std::function<void(bool)>([](bool a) -> void { (a)?system(\"sudo reboot\"):0; })"],
                 "children":[]
             },
             {
                 "name":"Power Off",
+                "point":"",
                 "type":"BinaryItem",
                 "args": ["std::function<void(bool)>([](bool a) -> void { (a)?system(\"sudo poweroff\"):0; })"],
                 "children":[]

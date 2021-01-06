@@ -11,7 +11,10 @@ def getMenus(tab, previous):
 
     nodeCount+=1
 
-    current = "t"+str(nodeCount)
+    if (tab["point"] == ""):
+        current = "t"+str(nodeCount)
+    else:
+        current = tab["point"]
 
     line2write = "{0} {1} = {0}(\"{2}\", &{3}".format(tab["type"], current, tab["name"], previous)
 

@@ -1,4 +1,4 @@
-project(nodes)
+project(node)
 
 add_library(${PROJECT_NAME} src/ExitNode.cpp
                             src/MenuNode.cpp
