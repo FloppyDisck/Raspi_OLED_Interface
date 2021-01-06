@@ -1,5 +1,10 @@
 #include "scriptmod/HIDScriptNode.hpp"
 
+std::string HID_EMPTY = "\\0";
+std::string HID_PACKET_PREFIX = "\\x";
+std::string HID_PACKET_TRAIL = "\\0\\0\\0\\0\\0";
+std::string HID_EMPTY_PACKET = "\\0\\0\\0\\0\\0\\0\\0\\0";
+
 // Supposed fast implementation of the "to string"
 //template <typename I> std::string n2hexstr(I w, size_t hex_len) {
 //    static const char* digits = "0123456789ABCDEF";
