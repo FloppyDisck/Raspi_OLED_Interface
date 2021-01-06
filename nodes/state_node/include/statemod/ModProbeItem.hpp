@@ -11,9 +11,6 @@ public:
     void draw() override;
     std::ofstream HID_OUT;
 protected:
-    std::vector<std::string> moduleItems;
-    std::string startMod = "sudo modprobe -a ";
-    std::string stopMod = "sudo modprobe -a -r ";
 };
 
 #endif

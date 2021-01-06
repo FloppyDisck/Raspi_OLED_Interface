@@ -4,7 +4,7 @@
 // https://linux-sunxi.org/USB_Gadget
 
 ModProbeItem::ModProbeItem(const char* name, Node *previous) :
-StringItem(name, previous, {"OTG Off", "Ethernet", "K&M"}), moduleItems({"dwc2 libcomposite", "g_ether", "& sudo bash /usr/local/bin/OTG_HID_INIT.sh"}) {}
+StringItem(name, previous, {"OTG Off", "Ethernet", "K&M"}) {}
 
 Node *ModProbeItem::input(int input) {
     //return StringItem::input(input);
@@ -35,24 +35,17 @@ Node *ModProbeItem::input(int input) {
 
     else if (input==JOY_M) {
         //Turn off all modules
-        for (int i = moduleItems.size()-1; i >= 0; i--) {
-            std::string cmd = stopMod + moduleItems[i];
-            std::cout << cmd << std::endl;
-            system(cmd.c_str());
+        system("sudo modprobe -a -r g_ether libcomposite dwc2");
+
+        //Turn on Ethernet
+        if (state == 1) {
+            system("sudo modprobe -a dwc2 g_ether");
         }
 
-        //Turn on clicked module
-        if (state > 0) {
-            std::string cmd = startMod + moduleItems[0];
-            system(cmd.c_str());
-            cmd = startMod + moduleItems[state];
-            std::cout << cmd << std::endl;
-            system(cmd.c_str());
-        }
-
-        // Open HID output file
+        // Turn on HID
         if (state == 2) {
-            std::cout << "Opening /dev/hidg0" << std::endl;
+            system("sudo modprobe -a dwc2 libcomposite");
+            system("sudo bash /usr/local/bin/OTG_HID_INIT.sh");
             HID_OUT.open("/dev/hidg0");
         }
 
