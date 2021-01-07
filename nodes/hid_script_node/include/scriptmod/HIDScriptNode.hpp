@@ -2,6 +2,7 @@
 #define HIDSCRIPTNODE_HPP
 #include "nodemod/Node.hpp"
 #include "HID_Keys.hpp"
+#include <fstream>
 
 std::string char2HID(char c);
 template <typename I> std::string n2hexstr(I w);
