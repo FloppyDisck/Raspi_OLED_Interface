@@ -2,27 +2,6 @@
 
 char HID_EMPTY[8] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
-// Supposed fast implementation of the "to string"
-//template <typename I> std::string n2hexstr(I w, size_t hex_len) {
-//    static const char* digits = "0123456789ABCDEF";
-//    std::string rc(hex_len,'0');
-//    for (size_t i=0, j=(hex_len-1)*4 ; i<hex_len; ++i,j-=4)
-//        rc[i] = digits[(w>>j) & 0x0f];
-//    return rc;
-//}
-
-//Custom implementation - string comes with prefix and locked at size 2
-template <typename I> std::string n2hexstr(I w) {
-    static const char* digits = "0123456789ABCDEF";
-    std::string rc(4,'0');
-    rc[0] = '\\';
-    rc[1] = 'x';
-
-    for (size_t i=2, j=4 ; i<4; ++i,j-=4)
-        rc[i] = digits[(w>>j) & 0x0f];
-    return rc;
-}
-
 char* char2HID(char c) {
     char pressed_key;
 
