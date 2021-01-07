@@ -3,9 +3,9 @@
 
 #include <vector>
 #include <string>
-
+#include <iostream>
 extern "C" {
-	#include "oledmod/OLED_GUI.h"
+	#include "woled/OLED_GUI.h"
 }
 
 //Screen size

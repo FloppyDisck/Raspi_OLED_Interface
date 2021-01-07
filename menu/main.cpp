@@ -7,7 +7,7 @@
 #include "menumod/menu.hpp"
 #include "menumod/Safe_Queue.hpp"
 extern "C" {
-	#include "oledmod/OLED_GUI.h"
+	#include "woled/OLED_GUI.h"
 }
 
 std::atomic<bool> stop_thread = false;
@@ -99,6 +99,7 @@ int main(void)
 		currentMenu->draw();
 	}
     printf("********Closed Loop********\r\n");
+	return 0;
 }
 
 //TODO: fins a way to make a node for application running
