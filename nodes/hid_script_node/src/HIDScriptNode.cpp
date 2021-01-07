@@ -181,6 +181,8 @@ HIDScriptNode::HIDScriptNode(const char *name, Node *previous) :
 Node(name, previous){}
 
 Node * HIDScriptNode::input(int input) {
+    using namespace std::chrono_literals; //For time prefixed
+
     std::string word = "Hello, testing, testing";
 
     std::cout << "Testing modprobe" << std::endl;
@@ -193,9 +195,11 @@ Node * HIDScriptNode::input(int input) {
         std::cout << keypress << std::endl;
         //std::string command = "echo -ne \"" + keypress + "\" | sudo tee /dev/hidg0";
         HID_OUT << "\""+keypress+"\"";
+        std::this_thread::sleep_for(100ms);
         //system(command.c_str());
         //command = "echo -ne \"" + HID_EMPTY_PACKET + "\" | sudo tee /dev/hidg0";
         HID_OUT << "\""+HID_EMPTY_PACKET+"\"";
+        std::this_thread::sleep_for(50ms);
         //system(command.c_str());
     }
 
