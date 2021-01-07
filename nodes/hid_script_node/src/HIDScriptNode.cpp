@@ -27,11 +27,11 @@ template <typename I> std::string n2hexstr(I w) {
     return rc;
 }
 
-std::string char2HID(char c) {
+char* char2HID(char c) {
     int hid_num;
 
     std::string mod = HID_EMPTY;
-    int newMod = 0x00;
+    char newMod = 0x00;
     std::string hid;
 
     switch (c) {
@@ -177,8 +177,10 @@ std::string char2HID(char c) {
     }
 
     std::stringstream retStream;
-    retStream << newMod << 0x00 << hid_num << 0x00 << 0x00 << 0x00 << 0x00 << 0x00;
-    return retStream.str();
+    retStream << newMod << '\0' << hid_num << '\0' << '\0' << '\0' << '\0' << '\0';
+    char buffer[8] = {newMod, 0x00, char(hid_num), 0x00, 0x00, 0x00, 0x00, 0x00};
+    return buffer;
+    //return retStream.str();
     //return mod + HID_EMPTY + n2hexstr(hid_num) + HID_EMPTY + HID_PACKET_TRAIL;
 }
 
@@ -195,17 +197,21 @@ Node * HIDScriptNode::input(int input) {
     std::ofstream HID_OUT;
     for (char& c : word) {
         std::cout << c << std::endl;
-        std::string keypress = char2HID(c);
-        std::cout << keypress << std::endl;
+        char* keypress = char2HID(c);
+        //std::string keypress = char2HID(c);
+        //std::cout << keypress << std::endl;
 //        std::string command = "echo -ne \"" + keypress + "\" | sudo tee /dev/hidg0";
-        HID_OUT.open("/dev/hidg0");
-        HID_OUT << keypress;
+        HID_OUT.open("/dev/hidg0", std::ios::binary);
+        //HID_OUT << keypress;
+        HID_OUT.write(keypress, 8);
         HID_OUT.close();
 //        std::this_thread::sleep_for(100ms);
 //        system(command.c_str());
 //        command = "echo -ne \"" + HID_EMPTY_PACKET + "\" | sudo tee /dev/hidg0";
-        HID_OUT.open("/dev/hidg0");
-        HID_OUT << HID_EMPTY_PACKET;
+        HID_OUT.open("/dev/hidg0", std::ios::binary);
+        //HID_OUT << HID_EMPTY_PACKET;
+        char empty[8] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+        HID_OUT.write(empty, 8);
         HID_OUT.close();
 //        std::this_thread::sleep_for(50ms);
 //        system(command.c_str());

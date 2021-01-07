@@ -6,7 +6,7 @@
 #include <chrono>
 #include <thread>
 
-std::string char2HID(char c);
+char* char2HID(char c);
 template <typename I> std::string n2hexstr(I w);
 
 //TODO: filemanager just generated menu_nodes
