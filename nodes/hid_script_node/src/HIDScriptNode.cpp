@@ -197,18 +197,18 @@ Node * HIDScriptNode::input(int input) {
         std::cout << c << std::endl;
         std::string keypress = char2HID(c);
         std::cout << keypress << std::endl;
-        std::string command = "echo -ne \"" + keypress + "\" | sudo tee /dev/hidg0";
-//        HID_OUT.open("/dev/hidg0");
-//        HID_OUT << keypress;
-//        HID_OUT.close();
-        std::this_thread::sleep_for(100ms);
-        system(command.c_str());
-        command = "echo -ne \"" + HID_EMPTY_PACKET + "\" | sudo tee /dev/hidg0";
-//        HID_OUT.open("/dev/hidg0");
-//        HID_OUT << HID_EMPTY_PACKET;
-//        HID_OUT.close();
-        std::this_thread::sleep_for(50ms);
-        system(command.c_str());
+//        std::string command = "echo -ne \"" + keypress + "\" | sudo tee /dev/hidg0";
+        HID_OUT.open("/dev/hidg0");
+        HID_OUT << keypress;
+        HID_OUT.close();
+//        std::this_thread::sleep_for(100ms);
+//        system(command.c_str());
+//        command = "echo -ne \"" + HID_EMPTY_PACKET + "\" | sudo tee /dev/hidg0";
+        HID_OUT.open("/dev/hidg0");
+        HID_OUT << HID_EMPTY_PACKET;
+        HID_OUT.close();
+//        std::this_thread::sleep_for(50ms);
+//        system(command.c_str());
     }
 
     return previous_;
