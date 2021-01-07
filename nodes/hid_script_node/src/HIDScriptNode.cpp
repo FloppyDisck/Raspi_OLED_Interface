@@ -1,9 +1,10 @@
+#include <sstream>
 #include "scriptmod/HIDScriptNode.hpp"
 
-std::string HID_EMPTY = "\\0";
+std::string HID_EMPTY = "\0";
 std::string HID_PACKET_PREFIX = "\\x";
-std::string HID_PACKET_TRAIL = "\\0\\0\\0\\0\\0";
-std::string HID_EMPTY_PACKET = "\\0\\0\\0\\0\\0\\0\\0\\0";
+std::string HID_PACKET_TRAIL = "\0\0\0\0\0";
+std::string HID_EMPTY_PACKET = "\0\0\0\0\0\0\0\0";
 
 // Supposed fast implementation of the "to string"
 //template <typename I> std::string n2hexstr(I w, size_t hex_len) {
@@ -30,51 +31,52 @@ std::string char2HID(char c) {
     int hid_num;
 
     std::string mod = HID_EMPTY;
+    int newMod = 0x00;
     std::string hid;
 
     switch (c) {
         case '!':
             hid_num = (int)KEYBD_1;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case '"':
             hid_num = (int)KEYBD_APOSTROPHE;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case '#':
             hid_num = (int)KEYBD_3;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case '$':
             hid_num = (int)KEYBD_4;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case '%':
             hid_num = (int)KEYBD_5;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case '&':
             hid_num = (int)KEYBD_7;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case '\'':
             hid_num = (int)KEYBD_APOSTROPHE;
             break;
         case '(':
             hid_num = (int)KEYBD_9;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case ')':
             hid_num = (int)KEYBD_0;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case '*':
             hid_num = (int)KEYBD_8;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case '+':
             hid_num = (int)KEYBD_EQUAL;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case ',':
             hid_num = (int)KEYBD_COMMA;
@@ -93,29 +95,29 @@ std::string char2HID(char c) {
             break;
         case ':':
             hid_num = (int)KEYBD_SEMICOLON;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case ';':
             hid_num = (int)KEYBD_SEMICOLON;
             break;
         case '<':
             hid_num = (int)KEYBD_COMMA;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case '=':
             hid_num = (int)KEYBD_EQUAL;
             break;
         case '>':
             hid_num = (int)KEYBD_DOT;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case '?':
             hid_num = (int)KEYBD_SLASH;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case '@':
             hid_num = (int)KEYBD_2;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case '[':
             hid_num = (int)KEYBD_LEFTBRACE;
@@ -128,30 +130,30 @@ std::string char2HID(char c) {
             break;
         case '^':
             hid_num = (int)KEYBD_6;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case '_':
             hid_num = (int)KEYBD_MINUS;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case '`':
             hid_num = (int)KEYBD_GRAVE;
             break;
         case '{':
             hid_num = (int)KEYBD_LEFTBRACE;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case '|':
             hid_num = (int)KEYBD_BACKSLASH;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case '}':
             hid_num = (int)KEYBD_RIGHTBRACE;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         case '~':
             hid_num = (int)KEYBD_GRAVE;
-            mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+            newMod = KEYBD_MOD_LSHIFT;
             break;
         default:
             int ascii = (int)c;
@@ -166,7 +168,7 @@ std::string char2HID(char c) {
             // A-Z
             else if (ascii >= 65 && ascii <= 90) {
                 hid_num = KEYBD_A + ascii - 65;
-                mod = n2hexstr(int(KEYBD_MOD_LSHIFT));
+                newMod = KEYBD_MOD_LSHIFT;
             }
             // a-z
             else if (ascii >= 97 && ascii <= 122) {
@@ -174,7 +176,10 @@ std::string char2HID(char c) {
             }
     }
 
-    return mod + HID_EMPTY + n2hexstr(hid_num) + HID_EMPTY + HID_PACKET_TRAIL;
+    std::stringstream retStream;
+    retStream << newMod << 0x00 << hid_num << 0x00 << 0x00 << 0x00 << 0x00 << 0x00;
+    return retStream.str();
+    //return mod + HID_EMPTY + n2hexstr(hid_num) + HID_EMPTY + HID_PACKET_TRAIL;
 }
 
 HIDScriptNode::HIDScriptNode(const char *name, Node *previous) :
