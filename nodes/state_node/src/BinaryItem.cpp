@@ -29,12 +29,12 @@ void BinaryItem::draw() {
 
     const char* yes = "Yes";
     int yesS = 3;
-    mid = OLED_X_MAXPIXEL/4 - (yesS * font->Width)/2;
+    mid = OLED_X_MAXPIXEL/4 - (yesS * font->Width)/2 - xPadding_;
     drawItem(state==1, mid, 1 + (2*itemSize_), xPadding_, yPadding_, font, yes, yesS);
 
     const char* no = "No";
     int noS = 2;
-    mid = (OLED_X_MAXPIXEL/4)*3 - (noS * font->Width)/2;
+    mid = (OLED_X_MAXPIXEL/4)*3 - (noS * font->Width)/2 - xPadding_;
     drawItem(state==0, mid, 1 + (2*itemSize_), xPadding_, yPadding_, font, no, noS);
 
     OLED_Display();
