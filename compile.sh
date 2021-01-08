@@ -7,3 +7,4 @@ mkdir build
 cd build
 cmake ..
 make -j4
+cp ./menu/oled_menu /usr/local/bin/

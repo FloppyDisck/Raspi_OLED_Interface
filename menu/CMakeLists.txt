@@ -1,4 +1,4 @@
-project(menu_exec)
+project(oled_menu)
 
 add_executable(${PROJECT_NAME} main.cpp)
 
