@@ -1,7 +1,7 @@
 project(node)
 
-add_library(${PROJECT_NAME} src/ExitNode.cpp
-                            src/MenuNode.cpp
+add_library(${PROJECT_NAME}
+        src/MenuNode.cpp
                             src/Node.cpp)
 
 add_library(mod::node ALIAS ${PROJECT_NAME})

@@ -1,10 +1,10 @@
 [   {
         "libraries":[
-            "nodemod/ExitNode.hpp",
             "nodemod/MenuNode.hpp",
             "statemod/StateItem.hpp",
             "statemod/StringItem.hpp",
             "statemod/BinaryItem.hpp",
+            "statemod/ExitNode.hpp",
             "scriptmod/HIDScriptNode.hpp"
         ]
 

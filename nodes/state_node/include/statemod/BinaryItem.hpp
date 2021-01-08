@@ -1,11 +1,9 @@
 #ifndef BINARYITEM_HPP
 #define BINARYITEM_HPP
 
-
 #include <utility>
 #include <functional>
 #include "statemod/StateItem.hpp"
-
 
 class BinaryItem : public IntegerItem {
 public:
